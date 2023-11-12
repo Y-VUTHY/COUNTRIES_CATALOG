@@ -24,7 +24,7 @@
 
     <CountryList v-if="countries && 0 < countries.length" :countries="countries" />
     <template v-if="isLoading">
-      <el-skeleton :rows="5" animated style="{ width: '100%' }" />
+      <el-skeleton :rows="5" animated />
     </template>
 
     <template v-if="countries && 0 === countries.length && !isLoading">
@@ -143,6 +143,7 @@ export default {
 }
 header > h1 {
   color: #ff1584;
+  font-size: 20px;
   font-weight: bold;
 }
 header .search-tools {
@@ -174,7 +175,7 @@ header .sort-tools {
 }
 .sort-tools > .el-row > .el-button {
   margin: 0;
-  font-size: 10px;
+  font-size: 12px;
   height: 1.2rem;
   padding: 0 0.3rem;
 }

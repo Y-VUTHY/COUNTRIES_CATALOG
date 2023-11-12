@@ -49,10 +49,19 @@ export default {
   box-sizing: inherit;
 }
 .country-modal-container .country-name {
-  font-size: 10px;
+  font-size: 11px;
   width: 100%;
   font-weight: bold;
   cursor: pointer;
+  @media screen and (min-width: 1440px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 1440px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 1262px) {
+    font-size: 13px;
+  }
 }
 .el-dialog {
   width: 20rem;

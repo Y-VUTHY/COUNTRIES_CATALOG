@@ -32,7 +32,7 @@
         ><span class="title">idd:</span>
         <div class="idd-item">
           <p>
-            <el-icon><CaretRight /></el-icon> root: {{ country.idd.root }}
+            <el-icon><CaretRight /></el-icon> root: {{ country.idd.root? country.idd.root: 'N/A' }}
           </p>
           <p>
             
@@ -40,7 +40,8 @@
             <span v-for="(suffixe, index) in country.idd.suffixes" :key="index">
                {{suffixe}} {{ 1 < country.idd.suffixes?.length ? ',': '' }}
             </span>
-            <span> {{ 1 < country.idd.suffixes?.length ? ' etc.' : '' }}</span>
+            <span v-if="!country.idd.suffixes">N/A</span>
+            <spane v-else> {{ 1 < country.idd.suffixes?.length ? ' etc.' : '' }}</spane>
           </p>
         </div>
       </span>
@@ -78,20 +79,30 @@ export default {
   color: rgb(98, 98, 98);
   @media screen  and (min-width: 1440px){
     width: 24%;
+    .information span{
+      font-size: 16px;
+    }
   }
    @media screen  and (max-width: 1440px){
     width: 24%;
+    .information span{
+      font-size: 14px;
+    }
   }
   @media screen  and (max-width: 1262px){
     width: 23%;
+    .information span{
+      font-size: 13px;
+    }
   }
-  @media screen  and (max-width: 711px){
-    width: 31%;
+  @media screen  and (max-width: 1000px){
+    width: 32%;
   }
+  @media screen  and (max-width: 864px){
+    width: 48%;
+  }
+ 
    @media screen  and (max-width: 530px){
-   width: 48%;
-  }
-  @media screen  and (max-width: 463px){
    width: 100%;
   }
 }
@@ -101,8 +112,8 @@ img {
   height: 8rem;
   display: block;
   border: 0.01rem solid;
-  @media screen  and (min-width: 1440px){
-    height: 12rem;
+  @media screen and (min-width: 1440px){
+    height: 16rem;
   }
    @media screen  and (max-width: 1440px){
     height: 12rem;
@@ -116,10 +127,14 @@ img {
    @media screen  and (max-width: 1030px){
     height: 7rem;
   }
-  @media screen  and (max-width: 711px){
-   height: 6rem;
+   @media screen  and (max-width: 1000px){
+    height: 9rem;
   }
-  @media screen  and (max-width: 463px){
+   @media screen  and (max-width: 864px){
+    height: 11rem;
+  }
+  
+  @media screen  and (max-width: 530px){
    height: 14rem;
   }
 }
@@ -131,7 +146,7 @@ img {
   gap: 0.3rem;
 }
 .information span {
-  font-size: 10px;
+font-size: 10px;
 }
 .information > .cca-code {
   display: flex;
